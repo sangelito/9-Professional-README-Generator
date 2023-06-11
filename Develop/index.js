@@ -51,7 +51,42 @@ const questions = [
         name: "license",
         message: "Please select a license for this project.",
         choices: [],
-    }
+        validate: validateInput,
+    }, 
+    //Contribution 
+    {
+        type: "input",
+        name: "contributing",
+        message: "How can users contribute to your project.",
+        validate: validateInput,
+    }, 
+    //test questions 
+    {
+        type: "input",
+        name: "tests",
+        message: "Please enter any testing instructions you would like to provide for this project.",
+        validate: validateInput,
+    }, 
+    // github info
+    {
+        type: "input",
+        name: "userName",
+        message: "What is your GitHub username?",
+        validate: validateInput,
+    },
+    //email info 
+    {
+        type: "input",
+        name: "userEmail",
+        message: "What is your GitHub email address that contributors may contact?",
+        validate: function (value) {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+                return true;
+        } else {
+            return "Not a valid email address. Please enter a valid email address.";
+        }
+    },
+    }, 
 ];
 
 // TODO: Create a function to write README file
