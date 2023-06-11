@@ -107,19 +107,19 @@ const questions = [
         type: "input",
         name: "userEmail",
         message: "What is your GitHub email address that contributors may contact?",
-        validate: function (value) {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-                return true;
-        } else {
-            return "Not a valid email address. Please enter a valid email address.";
-        }
-    },
+    //     validate: function (value) {
+    //         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+    //             return true;
+    //     } else {
+    //         return "Not a valid email address. Please enter a valid email address.";
+    //     }
+    // },
     }, 
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, generateMarkdown(data), function (err) {
+    fs.writeFileSync(fileName, generateMarkdown(data), function (err) {
         if (err) {
             return console.log(err);
         }
@@ -131,7 +131,7 @@ function init() {
     inquirer.prompt(questions).then((data) => {
         console.log(JSON.stringify(data, null, " "));
         data.getLicense = getLicense(data.license);
-        writeToFile("./example/README.md", data);
+        writeToFile("./README.md", data);
     });
 }
 
