@@ -28,6 +28,29 @@ const questions = [
         name: "description",
         message: "Please enter a description of your project.",
         validate: validateInput,
+    },
+    // table of contents in markdown js 
+
+    //installation question 
+    {
+        type: "input",
+        name: "installation",
+        message: "Please enter an explanation how to install the software, or commands for the program.",
+        validate: validateInput,
+    },
+    //Question for usage 
+    {
+        type: "input",
+        name: "installation",
+        message: "Please enter an explanation how to install the software, or commands for the program.",
+        validate: validateInput,
+    },
+    // question for license 
+    {
+        type: "list",
+        name: "license",
+        message: "Please select a license for this project.",
+        choices: [],
     }
 ];
 
