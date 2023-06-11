@@ -19,7 +19,15 @@ const questions = [
     {
         type: "input", 
         name: "title", 
-        message: "What is the title of your project?"
+        message: "What is the title of your project?",
+        validate: validateInput,
+    },
+    // Project Description 
+    {
+        type: "input",
+        name: "description",
+        message: "Please enter a description of your project.",
+        validate: validateInput,
     }
 ];
 
