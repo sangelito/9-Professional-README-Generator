@@ -4,6 +4,15 @@ const inquirer = require("inquirer");
 
 const generateMarkdown = require("./utils/generateMarkdown")
 
+//no blank answers to questions 
+function validateInput(value) {
+    if (value != "") {
+        return true;
+    } else {
+        return "Please answer the question with some kind on input.";
+    }
+}
+
 // TODO: Create an array of questions for user input
 const questions = [
     //title 
