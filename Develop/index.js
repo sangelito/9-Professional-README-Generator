@@ -70,7 +70,15 @@ const questions = [
         type: "list",
         name: "license",
         message: "Please select a license for this project.",
-        choices: [],
+        choices: [
+            "GNU AGPLv3",
+            "GNU GPLv3",
+            "GNU LGPLv3",
+            "Apache 2.0",
+            "Boost Software 1.0",
+            "MIT",
+            "Mozilla",
+        ],
         validate: validateInput,
     }, 
     //Contribution 
@@ -116,7 +124,7 @@ function writeToFile(fileName, data) {}
 function init() {
     inquirer.prompt(questions).then((data) => {
         console.log(JSON.stringify(data, null, " "));
-        //data.getLicense = getLicense(data.license);
+        data.getLicense = getLicense(data.license);
         writeToFile("./example/README.md", data);
     });
 }
